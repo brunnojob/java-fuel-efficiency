@@ -109,6 +109,8 @@ public final class FuelLog {
               + p.cost()
               + ",\"litersPer100Km\":"
               + p.litersPer100Km()
+              + ",\"costPerKm\":"
+              + p.cost().divide(BigDecimal.valueOf(p.distanceKm()), 4, RoundingMode.HALF_EVEN)
               + "}");
       distance = Math.addExact(distance, p.distanceKm());
       liters = liters.add(p.liters());
@@ -121,6 +123,9 @@ public final class FuelLog {
             + liters
             + ",\"accountedCost\":"
             + cost
+            + ",\"weightedLitersPer100Km\":"
+            + (distance == 0 ? BigDecimal.ZERO : liters.multiply(new BigDecimal("100"))
+                .divide(BigDecimal.valueOf(distance), 3, RoundingMode.HALF_EVEN))
             + "}");
   }
 
