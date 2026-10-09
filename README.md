@@ -1,28 +1,32 @@
 # Fuel Log
 
-Registro persistente de abastecimentos, custos decimais e consumo entre tanques completos, incluindo abastecimentos parciais.
+A persistent fuel log with decimal costs and consumption between full tanks, including partial refills.
 
-## Executar
+## Run
 
-Requisitos: Java 17.
+Requirements: Java 17.
 
 ```sh
 javac FuelLog.java
 java FuelLog abastecimentos.csv add 2026-10-09 12000 35.500 6.190 full
-java FuelLog abastecimentos.csv report > resultado.json
+java FuelLog abastecimentos.csv report > result.json
 ```
 
-## Funcionamento
+## Behavior
 
-Comandos: `add data odômetro litros preço full|partial` e `report`. Datas e odômetro não podem regredir. `BigDecimal` conserva precisão; arquivo e bloqueio protegem o registro local.
+Commands: `add date odometer liters price full|partial` and `report`. Dates and odometer readings cannot decrease. `BigDecimal` preserves precision; file locking protects the local log.
 
-## Persistência de resultados
+## Result synchronization
 
-O arquivo de operações está em [vercel-home-telemetry-api.vercel.app](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=java-fuel-efficiency). As migrações Supabase estão no [repositório da API](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
+The [operations archive](https://vercel-home-telemetry-api.vercel.app/laboratory.html?project=java-fuel-efficiency) stores execution results. Supabase migrations are in the [API repository](https://github.com/brunnojob/vercel-home-telemetry-api/tree/main/supabase/migrations).
 
 ```sh
-python cloud/sync.py enqueue resultado.json --project java-fuel-efficiency
+python cloud/sync.py enqueue result.json --project java-fuel-efficiency
 python cloud/sync.py sync
 ```
 
-Defina `BRUNNODEV_ACCESS_TOKEN` com sua sessão. A fila SQLite conserva os relatórios até confirmação do servidor; o mesmo conteúdo não gera registros duplicados. Tokens não são gravados no código.
+Set `BRUNNODEV_ACCESS_TOKEN` to your session token. The SQLite outbox retains reports until the server confirms persistence; identical content does not create duplicate records. Tokens are not stored in source code. To run the synchronization tests:
+
+```sh
+python -m unittest discover -s cloud
+```
