@@ -28,7 +28,7 @@ Original source and documentation are MIT licensed; see [LICENSE](LICENSE). Thir
 
 Reports include weighted consumption across complete fill-up periods and a cost-per-kilometer value for each period. Weighting uses summed liters and distance rather than averaging period ratios.
 
-Contribution trailer: `Co-authored-by: nyctophile <329826984+ineedfoundmyway@users.noreply.github.com>`.
+Contribution trailer: `Co-authored-by: nyctophile <33561761+ineedfoundmyway@users.noreply.github.com>`.
 
 ## Execution proof
 
