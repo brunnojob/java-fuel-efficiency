@@ -1,7 +1,8 @@
 {
   "repository": "brunnojob/java-fuel-efficiency",
   "inputs": [
-    ".proof/scenarios.json"
+    ".proof/scenarios.json",
+    ".proof/demo.py"
   ],
   "cases": [
     {
@@ -29,6 +30,17 @@
       ],
       "timeout": 900,
       "display": true
+    },
+    {
+      "name": "Account partial refueling and reject a regressed odometer",
+      "argv": [
+        "python",
+        ".proof/demo.py"
+      ],
+      "contains": [
+        "\"regressed_reading_rejected\": true"
+      ],
+      "timeout": 120
     }
   ]
 }
