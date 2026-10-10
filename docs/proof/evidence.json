@@ -1,11 +1,12 @@
 {
   "schema": 1,
   "repository": "brunnojob/java-fuel-efficiency",
-  "source_commit": "13d5298ced4831d234fad52033b48c4a7510c2c7",
-  "generated_at": "2026-10-10T02:37:04.427308+00:00",
-  "run_url": "https://github.com/brunnojob/java-fuel-efficiency/actions/runs/38017611026",
+  "source_commit": "31ea28f4f8e0bdbe8fb28532520349840d6d83fe",
+  "generated_at": "2026-10-10T02:45:19.245485+00:00",
+  "run_url": "https://github.com/brunnojob/java-fuel-efficiency/actions/runs/38018108098",
   "inputs_sha256": {
-    ".proof/scenarios.json": "cf8a3d5d444c7e1fa1a644fdd03b32920bf141caf5f4ad4808c515d838757710"
+    ".proof/scenarios.json": "7227f9bea3786ecac141ec9c6634886cf07f99c30a79b2e7ef98070f844965bb",
+    ".proof/demo.py": "fb4938278af2572e2a8ce681f4f668bce8e63226944f827d3374d266343c0927"
   },
   "cases": [
     {
@@ -22,7 +23,7 @@
       "exit": 0,
       "expected_exit": 0,
       "passed": true,
-      "seconds": 2.009,
+      "seconds": 2.96,
       "output": "",
       "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
@@ -40,9 +41,23 @@
       "exit": 0,
       "expected_exit": 0,
       "passed": true,
-      "seconds": 1.359,
-      "output": "test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.206s\n\nOK\n",
-      "output_sha256": "ba6ac58403c1dcc592c5234fd147b226ec15c32f68e5e106298665f1c2f3193e"
+      "seconds": 1.305,
+      "output": "test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 1.099s\n\nOK\n",
+      "output_sha256": "44c9619e2650ad930a0aaf3fdb3182dd93a375e5c85c20605e04755d8788853d"
+    },
+    {
+      "display": true,
+      "name": "Account partial refueling and reject a regressed odometer",
+      "argv": [
+        "python",
+        ".proof/demo.py"
+      ],
+      "exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "seconds": 0.402,
+      "output": "{\"regressed_reading_rejected\": true, \"report\": {\"accountedCost\": 180.0, \"accountedLiters\": 30.0, \"distanceKm\": 300, \"fills\": 3, \"periods\": [{\"cost\": 180.0, \"costPerKm\": 0.6, \"date\": \"2026-01-03\", \"distanceKm\": 300, \"liters\": 30.0, \"litersPer100Km\": 10.0}], \"weightedLitersPer100Km\": 10.0}}\n",
+      "output_sha256": "36939d655ed3a3735922aa5179c9353feeb9dba4ea76895ca8c6846225337d57"
     }
   ],
   "passed": true

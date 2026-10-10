@@ -4,6 +4,9 @@ $ bash -e -o pipefail -c python -m unittest discover -v -s tests
 test_persistent_workflow (test_workflow.WorkflowTests.test_persistent_workflow) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 1.206s
+Ran 1 test in 1.099s
 
 OK
+
+$ python .proof/demo.py
+{"regressed_reading_rejected": true, "report": {"accountedCost": 180.0, "accountedLiters": 30.0, "distanceKm": 300, "fills": 3, "periods": [{"cost": 180.0, "costPerKm": 0.6, "date": "2026-01-03", "distanceKm": 300, "liters": 30.0, "litersPer100Km": 10.0}], "weightedLitersPer100Km": 10.0}}
