@@ -1,5 +1,7 @@
 # Fuel Log
 
+[View execution evidence](https://brunnojob.github.io/devstart-lab/proofs/java-fuel-efficiency/)
+
 A persistent fuel log with decimal costs and consumption between full tanks, including partial refills.
 
 ## Run
