@@ -1,4 +1,4 @@
 date=2026-11-23
-seq=305
-ts=1795454044
-scope=consumption
+seq=306
+ts=1795454049
+scope=rpm-curve
